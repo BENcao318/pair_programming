@@ -1,0 +1,59 @@
+Classes
+  1. Player
+    - attribute
+      1. attribute_reader: score
+      2. attribute_reader: name
+
+      method:
+      subtract_score
+
+
+  2. Game
+    - attribute
+      1. winner - null and set inside constructor
+      2. list_of_players - array of players
+      3. question
+      4. current_player - this is like an index to tell which was the current player
+      5. user_input - store user's input
+
+
+      method:
+        1. attribute_current_player - update after every round is finished
+        2. start_game - a while loop that compare user's input with question's answer
+          - Will make a call to question generate_question method
+          - Will check the answer from question instance to determine if we need to call subtract_score
+          - Will make a call to the player subtract_score method using current_player as the index;
+              Then we check the score of the player to see if we need to end the game or not
+
+  3. Question
+    - attribute
+      1. attribute_reader: description
+      2. attribute_reader: answer
+
+    - method
+      1. generate_question: Will get 2 random numbers and generate the question and
+      return the question; Store the answer in the answer attribute
+
+
+  4. main.rb
+
+- initialiate a game instance
+
+- call game start_game method
+  - Create 2 player instances
+    - While loop starts
+      - Set current_player to 0
+      - Create 1 question instance
+      - display current player + question description
+      - Get the user input
+      - Check the answer
+        - May call subtract_score
+          - Check player score and determine if we need to end the game
+            - set the winner
+      - set current_player to 1 (or 0)
+    - Output who is the winner with his/her score
+
+
+
+Mentor's suggestion:
+- there may be other scenarios that we didn't cover here but it doesn't mean we dont' have a sold plan
